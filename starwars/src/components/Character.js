@@ -21,11 +21,13 @@ function Character(props) {
         Promise.all([homeworldPromise, speciesPromise])
             .then(([homeworldRes, speciesRes]) => {
                 setHandS([homeworldRes.data.name, speciesRes.data.name]);
+                console.log("hello");
             })
             .catch(error => {
                 debugger
             });
-    });
+    }, []);
+    // Now that I think about it, it would probably have been best to embed this in the original query, so that everything loads at once!
 
     return (
         <StyledCharacterBox>
