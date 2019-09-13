@@ -24,15 +24,25 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+- [x] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
-- [ ] What does it mean to _think_ in react?
+    React is a JS library (or framework? I'm still not so sure about the difference) built by a team at Facebook. It makes building modular UI 'components' easier.
 
-- [ ] Describe state.
+- [x] What does it mean to _think_ in react?
 
-- [ ] Describe props.
+    As per https://reactjs.org/docs/thinking-in-react.html, to 'think in React' is to first break a target UI into a component hierarchy, then mock-up a static version of the site, identify a minimal representation of _state_, identify where _state_ should be stored, and, finally, hook up 'inverse data flows' via callbacks.
 
-- [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+- [x] Describe state.
+
+    Clue is in the name — which makes it difficult to describe without saying 'state'! But basically: the 'state' of an app is information about its parts, e.g. whether buttons have been pressed, counters incremented, arrays added to, and so on.
+
+- [x] Describe props.
+
+    Props in an object passed down to child components (by the browser), containing information relevant to the state of that child and other descendants.
+
+- [x] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+    Any function which runs as a 'side effect' of something else happening: e.g. a change of state of a component, the page re-rendering, etc. Effects in a component are synched to state or prop changes via the effect hook or callbacks.
 
 ## Project Set Up
 
