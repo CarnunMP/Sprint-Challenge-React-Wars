@@ -23,14 +23,12 @@ const App = () => {
       })
   }, []);
 
-  console.log(characters);
-
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
       {
         characters.map(character => (
-          <Character name={character.name} gender={character.gender} homeworld={character.homeworld} species={character.species}/>
+          <Character name={character.name} gender={character.gender} homeworldURL={character.homeworld} speciesURL={character.species}/>
         ))
       }
     </div>

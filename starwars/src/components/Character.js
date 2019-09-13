@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const StyledCharacterBox = styled.div`
     border: 2px solid black;
@@ -10,7 +11,21 @@ const StyledCharacterBox = styled.div`
 `;
 
 function Character(props) {
-    const {name, gender, homeworld, species} = props;
+    const {name, gender, homeworldURL, speciesURL} = props;
+    const [[homeworld, species], setHandS] = useState([]);
+
+    useEffect(() => {
+        const homeworldPromise = axios.get(homeworldURL);
+        const speciesPromise = axios.get(speciesURL);
+
+        Promise.all([homeworldPromise, speciesPromise])
+            .then(([homeworldRes, speciesRes]) => {
+                setHandS([homeworldRes.data.name, speciesRes.data.name]);
+            })
+            .catch(error => {
+                debugger
+            });
+    }, []);
 
     return (
         <StyledCharacterBox>
