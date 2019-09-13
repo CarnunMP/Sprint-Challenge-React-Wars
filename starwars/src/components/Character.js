@@ -25,7 +25,7 @@ function Character(props) {
             .catch(error => {
                 debugger
             });
-    }, []);
+    });
 
     return (
         <StyledCharacterBox>
