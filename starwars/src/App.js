@@ -21,7 +21,7 @@ const App = () => {
         setCharacters(response.data.results);
       })
       .catch(error => {
-        debugger
+        alert(`Error: ${error}`);
       })
   }, []);
 
@@ -30,7 +30,11 @@ const App = () => {
       <h1 className="Header">React Wars</h1>
       {
         characters.map(character => (
-          <Character name={character.name} gender={character.gender} homeworldURL={character.homeworld} speciesURL={character.species}/>
+          <Character 
+            name={character.name} 
+            gender={character.gender} 
+            homeworldURL={character.homeworld} 
+            speciesURL={character.species}/>
         ))
       }
     </div>
