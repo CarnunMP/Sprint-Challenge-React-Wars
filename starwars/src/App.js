@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import Character from "./components/Character";
 import './App.css';
 
 const App = () => {
@@ -10,23 +11,28 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  const [people, setPeople] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     axios.get("https://swapi.co/api/people")
       .then(response => {
-        setPeople(response.data.results);
+        setCharacters(response.data.results);
       })
       .catch(error => {
         debugger
       })
   }, []);
 
-  console.log(people);
+  console.log(characters);
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      {
+        characters.map(character => (
+          <Character name={character.name} gender={character.gender} homeworld={character.homeworld} species={character.species}/>
+        ))
+      }
     </div>
   );
 }
